@@ -1,6 +1,6 @@
 # Google Flow Credit Economics — Google AI Ultra
 
-> Last verified: March 2026. Sources: Google Flow Help Center,
+> Last verified: 7 March 2026. Sources: Google Flow Help Center,
 > Google One AI Credits page, hands-on production testing.
 > All figures below apply exclusively to the Google AI Ultra plan.
 
@@ -21,15 +21,28 @@
 **CRITICAL: Costs are per output, not per request.** A single request
 can generate 1–4 outputs. Generating 4 Quality outputs = 400 credits.
 
+#### Flow (Video Generation)
+
 | Model | Credits per output | Max outputs / month (25,000 cr) |
 |---|---|---|
-| **Veo 3.1 Fast** | **0 (free)** | **Unlimited** (rate-limited only) |
+| **Veo 3.1 Fast** | **0 (Included)** | **Unlimited** (rate-limited only) |
 | **Veo 3.1 Quality** | **100** | 250 |
 | **Veo 2 Fast** | **10** | 2,500 |
 | **Veo 2 Quality** | **100** | 250 |
 | **Video edits** (Extend, Insert/Remove Object) | **20** | 1,250 |
+| **1080p** | **0 (Included)** | Included |
+
+#### Whisk (Image/Video Remixing)
+
+| Model | Credits per output | Max outputs / month (25,000 cr) |
+|---|---|---|
+| **Veo 3 Fast** | **20** | 1,250 |
+
+#### Other
+
+| Product | Credits per output | Max outputs / month |
+|---|---|---|
 | **Image generation** (Imagen 4 / Nano Banana Pro) | **0** | Unlimited |
-| **1080p upscaling** | **0** | Included |
 | **4K upscaling** | **0** | Ultra exclusive |
 
 ### Key pricing notes
@@ -58,6 +71,7 @@ can generate 1–4 outputs. Generating 4 Quality outputs = 400 credits.
 | 1× Quality + 3 extensions | 160 | $1.60 | $0.80 |
 | 1× Veo 2 Fast | 10 | $0.10 | $0.05 |
 | 1× video edit | 20 | $0.20 | $0.10 |
+| 1× Whisk Veo 3 Fast | 20 | $0.20 | $0.10 |
 
 **Calculation:** $249.99 ÷ 25,000 credits = $0.01 per credit.
 At introductory price: $124.99 ÷ 25,000 = $0.005 per credit.

@@ -166,7 +166,7 @@ platforms simultaneously. Recommended allocation by role:
 | **Volume social content** | Kling | Cheapest per-clip, longest duration |
 | **Image-to-video** | Kling | Industry-leading i2v workflow |
 
-### Recommended per-scene decision flow
+### Recommended per-clip decision flow
 
 ```
 Is this an establishing/nature/atmosphere shot?

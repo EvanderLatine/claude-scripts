@@ -60,10 +60,12 @@ Choose the model based on footage type and production phase:
 
 | Phase / Need | Model | Credits (Ultra) | Rationale |
 |---|---|---|---|
-| Prompt iteration & drafts | Veo 3.1 Fast | **0** (free on Ultra) | Unlimited iterations at no cost |
+| Prompt iteration & drafts | Veo 3.1 Fast | **0** (Included on Ultra) | Unlimited iterations at no cost |
 | Final hero footage | Veo 3.1 Quality | **100** per output | Full resolution, native audio |
 | Legacy footage (no audio needed) | Veo 2 Quality | **100** per output | Stable, proven |
 | Quick volume B-roll | Veo 2 Fast | **10** per output | Cheapest non-free option |
+| Image-to-video remixing | Whisk Veo 3 Fast | **20** per output | Creative remixing from reference images |
+| Video edits (extend/insert/remove) | — | **20** per edit | Post-generation refinement |
 
 **Critical:** Credit cost is *per output*, not per request. Generating 4 outputs
 from one prompt = 4× the listed credit cost. Always generate 1 output during
@@ -71,7 +73,7 @@ iteration, then scale to 2–4 for final selection.
 
 ## Prompt Writing Workflow
 
-Follow this sequence for each scene that requires Flow footage:
+Follow this sequence for each clip that requires Flow footage:
 
 ### Step 1: Determine shot requirements from the script
 

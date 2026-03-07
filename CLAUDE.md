@@ -37,7 +37,7 @@ Thirteen project-level skills are configured in `.claude/skills/`:
 | Skill | Purpose |
 |---|---|
 | `video-gen-prompts` | Cross-service comparison and prompt adaptation guide (Sora 2, Kling, Flow) |
-| `ai-service-selector` | Decision matrix for choosing video generation service per scene |
+| `ai-service-selector` | Decision matrix for choosing video generation service per clip (with scene-level temporal rules) |
 | `production-cost-estimator` | Production cost calculation methodology and pricing tables |
 
 ### Skill details

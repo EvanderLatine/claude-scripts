@@ -67,13 +67,15 @@ allowed-tools: Bash,Read
 
 | Model | Credits/output | Effective cost |
 |---|---|---|
-| **Veo 3.1 Fast** | **0 (FREE)** | **$0.00** |
+| **Veo 3.1 Fast** | **0 (Included)** | **$0.00** |
 | **Veo 3.1 Quality** | 100 | ~$1.00 |
 | Veo 2 Fast | 10 | ~$0.10 |
 | Veo 2 Quality | 100 | ~$1.00 |
 | Video edit (extend/insert/remove) | 20 | ~$0.20 |
+| Whisk Veo 3 Fast | 20 | ~$0.20 |
 | Image generation (Imagen 4) | 0 | $0.00 |
-| 1080p / 4K upscaling | 0 | $0.00 |
+| 1080p | 0 (Included) | $0.00 |
+| 4K upscaling | 0 | $0.00 (Ultra exclusive) |
 
 **Caution:** Cost is per OUTPUT, not per request. 4 outputs = 4× credits.
 Extension chain (3 extensions): 100 + 60 = 160 credits.
@@ -100,7 +102,8 @@ Extension chain (3 extensions): 100 + 60 = 160 credits.
 
 ### Step 1: Парсинг SCRIPT.md — Visual layer
 
-Для каждой сцены извлечь:
+Для каждого клипа (несколько клипов на сцену) извлечь:
+- **Scene / Clip:** (номер сцены и клипа)
 - **Model:** (Sora 2 / Kling / Flow / Stock footage / Static image)
 - **Duration:** (в секундах)
 - **Resolution:** (480p / 720p / 1080p / 4K)
@@ -108,9 +111,9 @@ Extension chain (3 extensions): 100 + 60 = 160 credits.
 
 Если Model = Stock footage или Static image → стоимость = $0 (бесплатные источники).
 
-### Step 2: Cost lookup per scene
+### Step 2: Cost lookup per clip
 
-По таблицам из Step 1 определить credit cost каждой сцены:
+По таблицам из Step 1 определить credit cost каждого клипа:
 
 **Sora 2:**
 - Найти ячейку в credit table по Resolution × Duration
@@ -122,9 +125,10 @@ Extension chain (3 extensions): 100 + 60 = 160 credits.
 - Разделить на 26,000 × $180
 
 **Flow:**
-- Veo 3.1 Fast: $0
+- Veo 3.1 Fast: $0 (Included)
 - Veo 3.1 Quality: 100 cr × quantity
 - Veo 2 Fast: 10 cr × quantity
+- Whisk Veo 3 Fast: 20 cr × quantity
 
 ### Step 3: Парсинг TELEPROMPTER.md — Narration characters
 
@@ -160,20 +164,22 @@ Grand Total = Adjusted Video Cost + ElevenLabs Cost + Subscription Costs (pro-ra
 # Production Cost Estimate
 **Video:** {Title}
 **Date:** {Date}
-**Scenes:** {N}
+**Scenes:** {N} | **Clips:** {M}
 
-## Per-Scene Breakdown
+## Per-Clip Breakdown
 
-| Scene | Model | Duration | Resolution | Credits | Cost |
-|---|---|---|---|---|---|
-| 01 | Sora 2 Quality | 10s | 1080p | 600 | $12.00 |
-| 02 | Flow Veo 3.1 Fast | 8s | 1080p | 0 | $0.00 |
-| 03 | Kling Professional | 10s | 1080p | 70 | $0.49 |
-| ... | ... | ... | ... | ... | ... |
+| Scene | Clip | Model | Duration | Resolution | Credits | Cost |
+|---|---|---|---|---|---|---|
+| 01 | 1 | Sora 2 Quality | 8s | 1080p | 480 | $9.60 |
+| 01 | 2 | Sora 2 Quality | 5s | 1080p | 300 | $6.00 |
+| 02 | 1 | Flow Veo 3.1 Fast | 6s | 1080p | 0 | $0.00 |
+| 02 | 2 | Flow Veo 3.1 Fast | 5s | 1080p | 0 | $0.00 |
+| 03 | 1 | Kling Professional | 8s | 1080p | 56 | $0.39 |
+| ... | ... | ... | ... | ... | ... | ... |
 
 ## Video Generation Summary
 
-| Service | Scenes | Total Credits | Cost (subscription) |
+| Service | Clips | Total Credits | Cost (subscription) |
 |---|---|---|---|
 | Sora 2 Pro | {N} | {credits} | ${cost} |
 | Kling Ultra | {N} | {credits} | ${cost} |
@@ -240,33 +246,38 @@ Grand Total = Adjusted Video Cost + ElevenLabs Cost + Subscription Costs (pro-ra
 
 ---
 
-## 5. Пример — 15-сценный скрипт
+## 5. Пример — 15-сценный скрипт (38 клипов)
 
 ```markdown
 # Production Cost Estimate
 **Video:** "Как AI меняет медицину в 2026"
 **Date:** 2026-03-06
-**Scenes:** 15
+**Scenes:** 15 | **Clips:** 38
 
-## Per-Scene Breakdown
+## Per-Clip Breakdown
 
-| Scene | Model | Duration | Resolution | Credits | Cost |
-|---|---|---|---|---|---|
-| 01 (Hook) | Sora 2 Quality | 10s | 1080p | 600 | $12.00 |
-| 02 (Intro) | Kling Professional | 10s | 1080p | 70 | $0.49 |
-| 03 (Context) | Flow Veo 3.1 Quality | 8s | 1080p | 100 | $1.00 |
-| 04 | Flow Veo 3.1 Fast | 8s | 1080p | 0 | $0.00 |
-| 05 | Flow Veo 3.1 Fast | 8s | 1080p | 0 | $0.00 |
-| 06 | Kling Standard | 10s | 720p | 20 | $0.14 |
-| 07 | Flow Veo 3.1 Fast | 8s | 1080p | 0 | $0.00 |
-| 08 (Hero) | Sora 2 Quality | 10s | 1080p | 600 | $12.00 |
-| 09 | Flow Veo 3.1 Fast | 8s | 1080p | 0 | $0.00 |
-| 10 | Flow Veo 3.1 Fast | 8s | 1080p | 0 | $0.00 |
-| 11 | Kling Standard | 10s | 720p | 20 | $0.14 |
-| 12 | Flow Veo 3.1 Fast | 8s | 1080p | 0 | $0.00 |
-| 13 | Flow Veo 3.1 Fast | 8s | 1080p | 0 | $0.00 |
-| 14 | Stock footage | — | — | — | $0.00 |
-| 15 (CTA) | Flow Veo 3.1 Quality | 8s | 1080p | 100 | $1.00 |
+| Scene | Clip | Model | Duration | Resolution | Credits | Cost |
+|---|---|---|---|---|---|---|
+| 01 (Hook) | 1 | Sora 2 Quality | 6s | 1080p | 360 | $7.20 |
+| 01 (Hook) | 2 | Sora 2 Quality | 5s | 1080p | 300 | $6.00 |
+| 02 (Intro) | 1 | Kling Professional | 7s | 1080p | 49 | $0.34 |
+| 02 (Intro) | 2 | Kling Professional | 5s | 1080p | 35 | $0.25 |
+| 03 (Context) | 1 | Flow Veo 3.1 Quality | 5s | 1080p | 100 | $1.00 |
+| 03 (Context) | 2 | Flow Veo 3.1 Quality | 4s | 1080p | 100 | $1.00 |
+| 04 | 1 | Flow Veo 3.1 Fast | 6s | 1080p | 0 | $0.00 |
+| 04 | 2 | Flow Veo 3.1 Fast | 5s | 1080p | 0 | $0.00 |
+| 04 | 3 | Flow Veo 3.1 Fast | 4s | 1080p | 0 | $0.00 |
+| 05 | 1 | Flow Veo 3.1 Fast | 8s | 1080p | 0 | $0.00 |
+| 06 | 1 | Kling Standard | 6s | 720p | 12 | $0.08 |
+| 06 | 2 | Kling Standard | 5s | 720p | 10 | $0.07 |
+| 07 | 1 | Flow Veo 3.1 Fast | 5s | 1080p | 0 | $0.00 |
+| 07 | 2 | Flow Veo 3.1 Fast | 4s | 1080p | 0 | $0.00 |
+| 08 (Hero) | 1 | Sora 2 Quality | 6s | 1080p | 360 | $7.20 |
+| 08 (Hero) | 2 | Sora 2 Quality | 5s | 1080p | 300 | $6.00 |
+| ... | ... | ... | ... | ... | ... | ... |
+| 14 | 1 | Stock footage | — | — | — | $0.00 |
+| 15 (CTA) | 1 | Flow Veo 3.1 Quality | 5s | 1080p | 100 | $1.00 |
+| 15 (CTA) | 2 | Flow Veo 3.1 Quality | 4s | 1080p | 100 | $1.00 |
 
 ## Video Generation Summary
 
